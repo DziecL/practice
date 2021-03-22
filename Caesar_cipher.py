@@ -24,4 +24,15 @@ def decode(text, seed):
         else:
             seed += 1
             
-# random.randint(0, 50)
+# makes brute_force obsolete
+def encode2(text, seed, seed2):
+    random.seed(seed)
+    e = [chr(ord(i) + random.randint(1, seed2)) for i in text]
+    return "".join(e)
+
+
+def decode2(text, seed, seed2):
+    random.seed(seed)
+    d = [chr(ord(i) - random.randint(1, seed2)) for i in text]
+    return "".join(d)
+
